@@ -46,6 +46,6 @@ console.log(newObject)
 
 // 4 - constraints
 
-function biggestNumber<T extends number | string>(a: T, b: T): T {
-    
-}
+// function biggestNumber<T extends number | string>(a: T, b: T): T {
+//     return 0
+// }
