@@ -93,3 +93,124 @@ function newCar(firstName: string, lastName?: string) {
 
 console.log(newCar("Fiat", "Uno"))
 console.log(newCar("Marea"))
+
+// 10 - union type
+
+function showBalance(balance: string | number) {
+    console.log(`O saldo da conta é R$${balance}`)
+}
+
+showBalance(700)
+showBalance("1000")
+// showBalance(false)
+
+const array2: Array<number | string | boolean> = [29, "Hi", false]
+
+// 11 - avançando em union types
+
+function showUserRole(role: boolean | string) {
+    if(typeof role === "boolean") {
+        return "Usuário foi reprovado!"
+    }
+
+    return `A função do usuário é: ${role}`
+}
+
+console.log(showUserRole(false))
+console.log(showUserRole("Back-end"))
+
+// 12 - type alias
+
+type ID = string | number
+
+function showId(id: ID) {
+    console.log(`O ID é: ${id}`)
+}
+
+showId(10)
+showId("500")
+
+// 13 - interfaces
+
+interface Point {
+    x: number
+    y: number
+    z: number
+}
+
+function showCoords(obj: Point) {
+    console.log(`X: ${obj.x} Y: ${obj.y} Z: ${obj.z}`)
+}
+
+const coordObj:Point = {
+    x: 17,
+    y: 59,
+    z: 22
+}
+
+showCoords(coordObj)
+
+// 14 - interface x type alias
+
+interface Person {
+    name: string
+}
+
+interface Person {
+    age: number
+}
+
+const anyPerson: Person = {name: "Lucas", age: 19}
+
+console.log(anyPerson)
+
+type personType = {
+    name: string
+}
+
+// type personType = {
+//     age: number
+// }
+
+// 15 - literal types
+
+let test = "testando isso"
+
+console.log(test)
+
+function showDirection(direction: "left" | "right" | "center") {
+    console.log(`A direção é: ${direction}`)
+}
+
+showDirection("left")
+
+// showDirection("bottom")
+
+// 16 - non-null assertion operators
+
+const p = document.getElementById("some-p")
+
+console.log(p!.innerText)
+
+// 17 - bigint
+
+let n: bigint
+
+// n = 12
+
+n = 1700n
+
+console.log(n)
+
+console.log(typeof n)
+
+console.log(n + 100n)
+
+// 18 - symbol
+
+let symbolAlfa: symbol = Symbol("alfa")
+
+let symbolBeta = Symbol("beta")
+
+console.log(symbolAlfa == symbolBeta)
+console.log(symbolAlfa === symbolBeta)
